@@ -12,43 +12,43 @@ public class LocationPopupPage extends BasicPage{
 		// TODO Auto-generated constructor stub
 	}
 
-	public WebElement locationHeader() {
+	public WebElement getLocationHeader() {
 		return driver.findElement(By.id("locality_keyword"));
 	}
 	
-	public WebElement locationCloseBtn() {
+	public WebElement getLocationCloseBtn() {
 		return driver.findElement(By.xpath("//div[@class='close-btn-white']"));
 	}
 	
-	public WebElement keyword() {
+	public WebElement getKeyword() {
 		return driver.findElement(By.xpath("//*[@id='locality_keyword']"));
 	}
 	
-	public WebElement locationItem(String locationName) {
+	public WebElement getLocationItem(String locationName) {
 		return driver.findElement(By.xpath("//li/a[contains(text(), '\" + locationName + \"')]/.."));
 	}
 	
-	public WebElement locationInput() {
+	public WebElement getLocationInput() {
 		return driver.findElement(By.xpath("//*[@id='location_id']"));
 	}
 	
-	public WebElement locationSubmit() {
+	public WebElement getLocationSubmit() {
 		return driver.findElement(By.xpath("//*[@name='btn_submit']"));
 	}
 	
 	public void clickLocationHeader() {
-		this.locationHeader().click();
+		this.getLocationHeader().click();
 	}
 	
 	public void setLocationName(String locationName) {
-		this.keyword().click();
-		String location = this.locationItem(locationName).getAttribute(locationName);
-		js.executeScript("arguments[0].value=arguments[1]", this.locationInput(), location);
-		js.executeScript("arguments[0].click()", this.locationSubmit());		
+		this.getKeyword().click();
+		String location = this.getLocationItem(locationName).getAttribute(locationName);
+		js.executeScript("arguments[0].value=arguments[1]", this.getLocationInput(), location);
+		js.executeScript("arguments[0].click()", this.getLocationSubmit());		
 	}
 	
 	public void closePopup() {
-		this.locationCloseBtn().click();
+		this.getLocationCloseBtn().click();
 	}
 	
 }

@@ -12,11 +12,6 @@ public class MealPage extends BasicPage{
 		super(driver, js, wait);
 	}
 
-//	Meal Page:
-//		get metode za sve potrebne elemente
-//		metodu koja dodaje jelo u korpu - kao parametar se prosleđuje količina
-//		metodu koja jelo dodaje u omiljena jela, klikom na dugme Favorite 
-
 		public WebElement getQuantity() {
 			return driver.findElement(By.xpath("//input[@name='product-qty']"));
 		}

@@ -71,21 +71,29 @@ public class ProfilePage extends BasicPage{
 	
 	public void profileUpdate(String firstName, String lastName, String address, String phoneNo, 
 			String zipCode, String country, String state, String city) {
-		getFirstName().clear();
-		getLastName().clear();
-		getAddress().clear();
-		getPhoneNo().clear();
-		getZipCode().clear();
+		this.getFirstName().click();
+		this.getFirstName().clear();
+		this.getFirstName().sendKeys(firstName);
+
+		this.getLastName().click();
+		this.getLastName().clear();
+		this.getLastName().sendKeys(lastName);
+
+		this.getAddress().click();
+		this.getAddress().clear();
+		this.getAddress().sendKeys(address);
+
+		this.getPhoneNo().click();
+		this.getPhoneNo().clear();
+		this.getPhoneNo().sendKeys(phoneNo);
 		
-		getFirstName().sendKeys(firstName);
-		getLastName().sendKeys(lastName);
-		getAddress().sendKeys(address);
-		getPhoneNo().sendKeys(phoneNo);
-		getZipCode().sendKeys(zipCode);
+		this.getZipCode().click();
+		this.getZipCode().clear();
+		this.getZipCode().sendKeys(zipCode);
 		
-		selectCountry(country);
-		selectState(state);
-		selectCity(city);
+		this.selectCountry(country);
+		this.selectState(state);
+		this.selectCity(city);
 	}
 	
 	

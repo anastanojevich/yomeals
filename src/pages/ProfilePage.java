@@ -48,5 +48,46 @@ public class ProfilePage extends BasicPage{
 		return city;
 	}
 	
+	public void uploadPhoto(String img) {
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//input[@type=\"file\"]")));
+		driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys("C:\\Users\\Dell\\Desktop\\Anja\\ponic.png");
+	}
+	
+	public void removePhoto() {
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[class=\"avatar\"]/img")));
+	}
+
+	public void selectCountry(String countryText) {
+		getCountry().selectByVisibleText(countryText);
+	}
+	
+	public void selectState(String stateText) {
+		getCountry().selectByVisibleText(stateText);
+	}
+	
+	public void selectCity(String cityText) {
+		getCountry().selectByVisibleText(cityText);
+	}
+	
+	public void profileUpdate(String firstName, String lastName, String address, String phoneNo, 
+			String zipCode, String country, String state, String city) {
+		getFirstName().clear();
+		getLastName().clear();
+		getAddress().clear();
+		getPhoneNo().clear();
+		getZipCode().clear();
+		
+		getFirstName().sendKeys(firstName);
+		getLastName().sendKeys(lastName);
+		getAddress().sendKeys(address);
+		getPhoneNo().sendKeys(phoneNo);
+		getZipCode().sendKeys(zipCode);
+		
+		selectCountry(country);
+		selectState(state);
+		selectCity(city);
+	}
+	
+	
 	
 }

@@ -36,5 +36,6 @@ public class LoginPage extends BasicPage{
 		this.getPassword().click();
 		this.getPassword().clear();
 		this.getPassword().sendKeys(password);
+		this.getLoginBtn().click();
 	}
 }

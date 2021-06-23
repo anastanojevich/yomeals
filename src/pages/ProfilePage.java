@@ -48,9 +48,14 @@ public class ProfilePage extends BasicPage{
 		return city;
 	}
 	
+	public WebElement getSaveBtn() {
+		return driver.findElement(By.xpath("//div[@class='row']//input[@type='submit']"));
+	}
+	
+	
 	public void uploadPhoto(String img) {
 		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//input[@type=\"file\"]")));
-		driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys("C:\\Users\\Dell\\Desktop\\Anja\\ponic.png");
+		driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys("D:\\yomeals\\yomeals\\pexels-jeshootscom-167832.jpg");
 	}
 	
 	public void removePhoto() {
@@ -70,7 +75,7 @@ public class ProfilePage extends BasicPage{
 	}
 	
 	public void profileUpdate(String firstName, String lastName, String address, String phoneNo, 
-			String zipCode, String country, String state, String city) {
+			String zipCode, String country, String state, String city) throws InterruptedException {
 		this.getFirstName().click();
 		this.getFirstName().clear();
 		this.getFirstName().sendKeys(firstName);
@@ -92,7 +97,9 @@ public class ProfilePage extends BasicPage{
 		this.getZipCode().sendKeys(zipCode);
 		
 		this.selectCountry(country);
+		Thread.sleep(1000);
 		this.selectState(state);
+		Thread.sleep(1000);
 		this.selectCity(city);
 	}
 	

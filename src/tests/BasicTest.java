@@ -37,7 +37,10 @@ public abstract class BasicTest {
 	@BeforeMethod
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
-		driver = new ChromeDriver();
+		this.driver = new ChromeDriver();
+		this.js = (JavascriptExecutor) driver;
+		this.wait = new WebDriverWait(driver, 10);
+		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);

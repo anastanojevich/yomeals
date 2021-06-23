@@ -24,7 +24,7 @@ public class NotificationSystemPage extends BasicPage{
 	}
 	
 	public void waitUntilMessageDissapears() {	
-		wait.until(ExpectedConditions.attributeContains(this.getMessage(), "style", "display:none"));
+		wait.until(ExpectedConditions.attributeContains(this.getMessage(), "style", "display: none"));
 			}
 	
 }

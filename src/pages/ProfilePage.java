@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -53,13 +54,18 @@ public class ProfilePage extends BasicPage{
 	}
 	
 	
-	public void uploadPhoto(String img) {
-		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//input[@type=\"file\"]")));
-		driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys("D:\\yomeals\\yomeals\\pexels-jeshootscom-167832.jpg");
+	public void uploadImage(String img) throws InterruptedException {
+		Actions action = new Actions(driver);
+		WebElement element = driver.findElement(By.className("avatar"));
+		action.moveToElement(element).perform();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[@title='Uplaod']"));
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[@title='Uplaod']")));
+		driver.findElement(By.xpath("//input[@type=\"file\"]")).sendKeys(img);
 	}
 	
-	public void removePhoto() {
-		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[class=\"avatar\"]/img")));
+	public void removeImage() {
+		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@title='Remove']")));
 	}
 	
 	public void profileUpdate(String firstName, String lastName, String address, String phoneNo, 

@@ -61,18 +61,6 @@ public class ProfilePage extends BasicPage{
 	public void removePhoto() {
 		js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[class=\"avatar\"]/img")));
 	}
-
-	public void selectCountry(String countryText) {
-		getCountry().selectByVisibleText(countryText);
-	}
-	
-	public void selectState(String stateText) {
-		getCountry().selectByVisibleText(stateText);
-	}
-	
-	public void selectCity(String cityText) {
-		getCountry().selectByVisibleText(cityText);
-	}
 	
 	public void profileUpdate(String firstName, String lastName, String address, String phoneNo, 
 			String zipCode, String country, String state, String city) throws InterruptedException {
@@ -96,11 +84,15 @@ public class ProfilePage extends BasicPage{
 		this.getZipCode().clear();
 		this.getZipCode().sendKeys(zipCode);
 		
-		this.selectCountry(country);
 		Thread.sleep(1000);
-		this.selectState(state);
+		this.getCountry().selectByVisibleText(country);
 		Thread.sleep(1000);
-		this.selectCity(city);
+		this.getState().selectByVisibleText(state);
+		Thread.sleep(1000);
+		this.getCity().selectByVisibleText(city);
+		Thread.sleep(1000);
+
+		js.executeScript("arguments[0].click()", this.getSaveBtn());
 	}
 	
 	

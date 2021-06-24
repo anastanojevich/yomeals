@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,8 +9,8 @@ public class ProfileTest extends BasicTest{
 	@Test
 	public void editProfileTest() throws InterruptedException {
 		driver.get(this.baseURL + "guest-user/login-form");
-		locationPage.getLocationCloseBtn().click();
-		loginPage.submitLoginInfo("customer@dummyid.com", "12345678a");
+		locationPage.closePopup();
+		loginPage.submitLoginInfo(this.email, this.password);
 		Thread.sleep(2000);
 		Assert.assertEquals(notificationPage.getMessageText(), "Login Successfull");
 		notificationPage.waitUntilMessageDissapears();

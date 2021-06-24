@@ -19,13 +19,23 @@ public class ProfileTest extends BasicTest{
 		driver.get(this.baseURL + "member/profile");
 		profilePage.profileUpdate("Jane", "Doe", "Cool Street 22", "222-333", "111", "United States", "Nevada", "Las Vegas");
 		Thread.sleep(2000);
-		Assert.assertEquals(notificationPage.getMessageText(), "Setup Successfull");
+		Assert.assertEquals(notificationPage.getMessageText(), "Setup Successful");
 		notificationPage.waitUntilMessageDissapears();
 		
-		authPage.getLogout().click();
+		authPage.logoutForm();
 		Thread.sleep(2000);
-		Assert.assertEquals(notificationPage.getMessageText(), "Logout Successfull");
+		Assert.assertEquals(notificationPage.getMessageText(), "Logout Successfull!");
 		notificationPage.waitUntilMessageDissapears();	
 	}
+	
+	@Test
+	public void changeProfileImageTest() throws InterruptedException {
+	
+		
+		
+	}
+	
+	
+	
 	
 }

@@ -20,5 +20,9 @@ public class AuthPage extends BasicPage{
 		return driver.findElement(By.xpath("//div[@class='my-account-dropdown']/ul/li[2]"));
 	}
 	
-	
+	public void logoutForm() {
+		this.getAccountForm().click();
+		this.getLogout().click();
+//		js.executeScript("arguments[0].click();", this.getLocationCloseBtn());
+	}
 }

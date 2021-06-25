@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testing Yomeals">
+	<test name="Regression">
+		<parameter name="baseURL" value="http://demo.yo-meals.com/" />
+		<parameter name="email" value="customer@dummyid.com" />
+		<parameter name="password" value="12345678a" />
+		<classes>
+			<class name="tests.BasicTest" />
+			<class name="tests.MealItemTest" />
+			<class name="tests.ProfileTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

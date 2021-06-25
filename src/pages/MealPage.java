@@ -13,7 +13,7 @@ public class MealPage extends BasicPage{
 	}
 
 		public WebElement getQuantity() {
-			return driver.findElement(By.xpath("//input[@name='product-qty']"));
+			return driver.findElement(By.xpath("//input[@type='number']"));
 		}
 
 		public WebElement getCart() {

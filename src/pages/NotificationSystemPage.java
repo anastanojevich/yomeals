@@ -22,9 +22,9 @@ public class NotificationSystemPage extends BasicPage{
 		return driver.findElement(By.xpath("//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')]"
 				+ "[contains(@style,'display: block')]")).getText();
 	}
-	
+		
 	public void waitUntilMessageDissapears() {	
 		wait.until(ExpectedConditions.attributeContains(this.getMessage(), "style", "display: none"));
-			}
+	}
 	
 }

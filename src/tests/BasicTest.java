@@ -69,7 +69,6 @@ public abstract class BasicTest {
 	
 	
 	@AfterMethod
-	
 	public void takeScreenshotWhenFailure(ITestResult result) throws InterruptedException, IOException{
 		if(ITestResult.FAILURE==result.getStatus()) {
 			TakesScreenshot screenshot = (TakesScreenshot) driver;

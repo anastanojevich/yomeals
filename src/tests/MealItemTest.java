@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class MealItemTest extends BasicTest{
 
-	@Test
+	@Test (priority = 0)
 	public void addMealToCartTest() throws InterruptedException {
 		driver.get(this.baseURL + "meal/lobster-shrimp-chicken-quesadilla-combo");
 		locationPage.closePopup();
@@ -34,7 +34,7 @@ public class MealItemTest extends BasicTest{
 	}
 	
 	
-	@Test
+	@Test (priority = 2)
 	public void addMealToFavoriteTest() throws InterruptedException {
 		driver.get(this.baseURL + "meal/lobster-shrimp-chicken-quesadilla-combo");
 		locationPage.closePopup();
@@ -53,7 +53,7 @@ public class MealItemTest extends BasicTest{
 		notificationPage.waitUntilMessageDissapears();		
 	}
 	
-	@Test
+	@Test (priority = 1)
 	public void clearCartTest() throws InterruptedException, IOException {
 		driver.get(this.baseURL + "meals");
 		Thread.sleep(2000);

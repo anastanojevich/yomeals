@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTest extends BasicTest{
 
-	@Test
+	@Test (priority = 0)
 	public void editProfileTest() throws InterruptedException {
 		driver.get(this.baseURL + "guest-user/login-form");
 		locationPage.closePopup();
@@ -31,7 +31,7 @@ public class ProfileTest extends BasicTest{
 		notificationPage.waitUntilMessageDissapears();	
 	}
 	
-	@Test
+	@Test (priority = 1)
 	public void changeProfileImageTest() throws InterruptedException, IOException {
 		driver.get(this.baseURL + "guest-user/login-form");
 		locationPage.closePopup();
@@ -58,8 +58,5 @@ public class ProfileTest extends BasicTest{
 		Assert.assertEquals(notificationPage.getMessageText(), "Logout Successfull!");
 		notificationPage.waitUntilMessageDissapears();	
 	}
-	
-	
-	
 	
 }

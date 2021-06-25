@@ -65,9 +65,6 @@ public abstract class BasicTest {
 		cartPage = new CartSummaryPage(driver, js, wait);
 	}
 	
-	
-	
-	
 	@AfterMethod
 	public void takeScreenshotWhenFailure(ITestResult result) throws InterruptedException, IOException{
 		if(ITestResult.FAILURE==result.getStatus()) {

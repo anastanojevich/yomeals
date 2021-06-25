@@ -21,11 +21,12 @@ public class MealPage extends BasicPage{
 		}
 		
 		public WebElement getFavorite() {
-			return driver.findElement(By.className("favorite"));
+			return driver.findElement(By.id("item_119"));
 		}
 	
-		public void addToCart(double quantity) {
-			js.executeScript("arguments[0].value=agruments[1]", this.getQuantity(), quantity);
+		public void addToCart(double quantity) throws InterruptedException {
+			js.executeScript("arguments[0].value=arguments[1]", this.getQuantity(), quantity);
+			Thread.sleep(2000);
 			this.getCart().click();
 		}
 		

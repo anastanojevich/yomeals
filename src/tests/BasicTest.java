@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.asserts.SoftAssert;
 
 import pages.AuthPage;
 import pages.CartSummaryPage;
@@ -33,6 +34,7 @@ public abstract class BasicTest {
 	protected String baseURL = "http://demo.yo-meals.com/";
 	protected String email = "customer@dummyid.com";
 	protected String password = "12345678a";
+	protected SoftAssert softAssertion;
 	
 	@BeforeMethod
 	public void setup() {
@@ -40,6 +42,7 @@ public abstract class BasicTest {
 		this.driver = new ChromeDriver();
 		this.js = (JavascriptExecutor) driver;
 		this.wait = new WebDriverWait(driver, 10);
+		this.softAssertion = new SoftAssert();
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

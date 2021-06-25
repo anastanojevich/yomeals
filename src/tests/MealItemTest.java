@@ -28,7 +28,7 @@ public class MealItemTest extends BasicTest{
 	
 	
 	@Test
-	public void addMealToFavorite() throws InterruptedException {
+	public void addMealToFavoriteTest() throws InterruptedException {
 		driver.get(this.baseURL + "meal/lobster-shrimp-chicken-quesadilla-combo");
 		locationPage.closePopup();
 		mealPage.addToFavorite();
@@ -46,6 +46,16 @@ public class MealItemTest extends BasicTest{
 		notificationPage.waitUntilMessageDissapears();		
 	}
 	
-	
-	
+	@Test
+	public void clearCartTest() throws InterruptedException {
+		driver.get(this.baseURL + "meals");
+		Thread.sleep(2000);
+		locationPage.clickLocationHeader();
+		Thread.sleep(2000);
+		locationPage.setLocationName("City Center - Albany");
+		
+		
+		
+		
+	}
 }
